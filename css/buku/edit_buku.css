@@ -1,0 +1,97 @@
+/* Container utama agar konten di tengah */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Card pembungkus form */
+.form-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    max-width: 600px; /* Supaya form tidak terlalu lebar */
+    margin: 0 auto;   /* Pusatkan card */
+}
+
+.form-card h2 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #f1c40f; /* Garis kuning khas dashboard Anda */
+    display: inline-block;
+}
+
+/* Grouping Label & Input */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* Styling Input, Number, dan Select */
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+    outline: none;
+    border-color: #2c3e50;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
+}
+
+/* Tombol-tombol */
+.button-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.btn-update {
+    flex: 2; /* Tombol update lebih lebar */
+    background-color: #2c3e50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-update:hover {
+    background-color: #1a252f;
+}
+
+.btn-cancel {
+    flex: 1;
+    text-align: center;
+    background-color: #ecf0f1;
+    color: #7f8c8d;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-cancel:hover {
+    background-color: #bdc3c7;
+    color: #2c3e50;
+}

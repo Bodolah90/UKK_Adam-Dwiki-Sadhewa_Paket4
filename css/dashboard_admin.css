@@ -1,0 +1,142 @@
+/* 1. Reset & Global Styles - Agar tampilan konsisten */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font modern */
+}
+
+body {
+    background-color: #f4f6f9; /* Warna background abu-abu muda, tidak putih polos */
+    color: #333;
+}
+
+/* 2. Navbar Styling */
+.navbar {
+    background-color: #2c3e50; /* Tetap menggunakan warna biru tua pilihanmu */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5%; /* Padding kanan-kiri pakai persentase agar responsif */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Memberikan efek bayangan */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 3. Menu Navigation */
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Jarak antar menu lebih lega */
+}
+
+.menu li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease; /* Animasi halus */
+    position: relative;
+}
+
+/* Efek Hover Menu */
+.menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Background transparan saat hover */
+    color: #fff;
+}
+
+/* Menu Aktif */
+.menu li a.active {
+    background-color: #34495e;
+    color: #f1c40f; /* Kuning emas agar kontras */
+    font-weight: bold;
+}
+
+/* Garis bawah animasi untuk menu (Opsional, terlihat elegan) */
+.menu li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #f1c40f;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.menu li a:hover::after {
+    width: 80%; /* Garis muncul saat hover */
+}
+
+/* 4. Bagian Kanan (User & Logout) */
+.right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user {
+    font-size: 15px;
+    font-weight: 500;
+    color: #bdc3c7;
+}
+
+.user span {
+    color: white;
+    font-weight: bold;
+}
+
+/* Tombol Logout */
+.logout {
+    background-color: #e74c3c;
+    color: white;
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 20px; /* Membuat tombol lonjong (pill shape) */
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(231, 76, 60, 0.3);
+    transition: all 0.3s ease;
+}
+
+.logout:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px); /* Efek tombol naik sedikit */
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.4);
+}
+
+/* 5. Style Tambahan untuk Konten Dashboard (Agar teks Selamat Datang lebih bagus) */
+.container {
+    max-width: 1200px;
+    margin: 40px auto; /* Posisi tengah halaman */
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.container h1 {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.container p {
+    color: #7f8c8d;
+    line-height: 1.6;
+}

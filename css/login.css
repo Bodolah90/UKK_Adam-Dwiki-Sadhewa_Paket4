@@ -1,0 +1,116 @@
+/* =========================================
+   1. Reset & Global Styles
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #eef2f3; /* Warna background abu-abu kebiruan lembut */
+    height: 100vh; /* Tinggi layar penuh */
+    display: flex;
+    justify-content: center; /* Posisi tengah horizontal */
+    align-items: center;     /* Posisi tengah vertikal */
+    padding: 0 20px; /* Padding agar tidak mentok di layar HP */
+}
+
+/* =========================================
+   2. Container & Card Style
+   ========================================= */
+.login-container {
+    width: 100%;
+    max-width: 400px; /* Lebar maksimal kotak login */
+}
+
+.login-form {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 10px; /* Sudut melengkung */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* =========================================
+   3. Form Elements (Input & Label)
+   ========================================= */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background-color: #fafafa;
+}
+
+/* Efek saat input diklik/fokus */
+.form-group input:focus {
+    border-color: #007bff; /* Warna biru saat aktif */
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+/* =========================================
+   4. Button Style
+   ========================================= */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Warna lebih gelap saat hover */
+}
+
+/* =========================================
+   5. Footer Link (Daftar)
+   ========================================= */
+.login-form p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.login-form p a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.login-form p a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}

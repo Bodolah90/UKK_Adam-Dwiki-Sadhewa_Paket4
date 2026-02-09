@@ -1,0 +1,79 @@
+/* Layout Utama */
+body {
+    background-color: #f4f7f6;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-content {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Judul dengan aksen kuning */
+h2 {
+    color: #2c3e50;
+    font-size: 26px;
+    margin-bottom: 25px;
+    border-left: 5px solid #f1c40f;
+    padding-left: 15px;
+    line-height: 1;
+}
+
+/* Pesan Berhasil */
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 5px solid #28a745;
+    font-weight: 500;
+}
+
+/* Tabel Modern */
+.table-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.modern-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.modern-table thead {
+    background-color: #34495e;
+    color: white;
+}
+
+.modern-table th, .modern-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.modern-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Tombol Kembalikan */
+.btn-kembali {
+    display: inline-block;
+    background-color: #e74c3c;
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none !important;
+    font-weight: bold;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.btn-kembali:hover {
+    background-color: #c0392b;
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+}

@@ -1,0 +1,115 @@
+/* =========================================
+   1. Layout Utama
+   ========================================= */
+body {
+    background-color: #f4f7f6; /* Warna abu-abu sangat muda agar card putih menonjol */
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-content {
+    max-width: 800px; /* Membatasi lebar agar form tidak terlalu melar */
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.main-content h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* =========================================
+   2. Card Styling (Kotak Putih)
+   ========================================= */
+.form-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Bayangan halus */
+    border-top: 5px solid #f1c40f; /* Garis kuning di atas sesuai gambar */
+}
+
+/* =========================================
+   3. Form Grid & Inputs
+   ========================================= */
+/* Di gambar Anda, input disusun vertikal satu per satu */
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-box label {
+    font-weight: 600;
+    color: #34495e;
+    font-size: 14px;
+}
+
+.input-box input, 
+.input-box select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dcdde1;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #fcfcfc;
+    transition: all 0.3s ease;
+}
+
+/* Efek saat input diklik */
+.input-box input:focus, 
+.input-box select:focus {
+    outline: none;
+    border-color: #3498db;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* =========================================
+   4. Tombol Aksi
+   ========================================= */
+.form-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.btn-save {
+    background-color: #2c3e50; /* Warna biru gelap sesuai navbar */
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s;
+}
+
+.btn-save:hover {
+    background-color: #1a252f;
+}
+
+.btn-cancel {
+    background-color: #ecf0f1;
+    color: #7f8c8d;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.btn-cancel:hover {
+    background-color: #bdc3c7;
+    color: #2c3e50;
+}

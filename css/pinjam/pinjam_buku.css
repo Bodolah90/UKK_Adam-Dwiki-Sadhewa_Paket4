@@ -1,0 +1,95 @@
+/* =========================================
+   1. Layout Utama
+   ========================================= */
+body {
+    background-color: #f4f7f6;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.main-content {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Judul dengan ciri khas garis kuning */
+h2 {
+    color: #2c3e50;
+    font-size: 26px;
+    margin-bottom: 25px;
+    border-left: 5px solid #f1c40f;
+    padding-left: 15px;
+    line-height: 1;
+}
+
+/* =========================================
+   2. Tabel Modern
+   ========================================= */
+.table-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.modern-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.modern-table thead {
+    background-color: #34495e;
+    color: white;
+}
+
+.modern-table th, .modern-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.modern-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* =========================================
+   3. Status Badge & Tombol
+   ========================================= */
+/* Status Buku */
+.status-label {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.tersedia { background: #d4edda; color: #155724; }
+.dipinjam { background: #fff3cd; color: #856404; }
+.tidak-ada { background: #f8d7da; color: #721c24; }
+
+/* Tombol Pinjam */
+.btn-pinjam {
+    display: inline-block;
+    background-color: #3498db;
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none !important; /* Menghilangkan garis bawah */
+    font-weight: bold;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.btn-pinjam:hover {
+    background-color: #2980b9;
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+/* Teks Status (Bukan Tombol) */
+.text-muted {
+    color: #95a5a6;
+    font-style: italic;
+    font-size: 13px;
+}
