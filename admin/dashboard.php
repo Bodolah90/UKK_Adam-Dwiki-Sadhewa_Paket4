@@ -18,15 +18,16 @@ $bukuTersedia = mysqli_fetch_assoc($qTersedia)['tersedia'];
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="../css/dashboard_admin.css">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/css/dashboard_admin.css">
+
 </head>
 <body>
 
 <?php include 'navbar.php'; ?>
 
 <div class="dashboard">
-    <h2>Dashboard Admin</h2>
+    <h2>Halaman Admin</h2>
     <p class="welcome">Selamat datang, <b><?= $_SESSION['username']; ?></b></p>
 
     <div class="card-container">

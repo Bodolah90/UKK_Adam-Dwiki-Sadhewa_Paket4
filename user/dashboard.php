@@ -31,6 +31,8 @@ include 'navbar.php';
 
 <div class="dashboard">
     <h2>Dashboard User</h2>
+     <p class="welcome">Selamat datang, <b><?= $_SESSION['username']; ?></b></p>
+
 
     <div class="card-container">
         <div class="card">

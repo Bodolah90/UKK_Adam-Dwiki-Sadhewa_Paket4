@@ -1,126 +1,115 @@
-/* ================= DASHBOARD ADMIN ================= */
-
-.dashboard {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 20px;
+/* ===============================
+   1. RESET & DASAR
+   =============================== */
+* {
+    box-sizing: border-box;
 }
 
-/* Judul */
-.dashboard h2 {
+body {
+    margin: 0;
+    background-color: #f4f7f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #2c3e50;
+}
+
+/* ===============================
+   2. DASHBOARD WRAPPER
+   =============================== */
+.dashboard {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* Judul Dashboard */
+.dashboard h2 {
     font-size: 26px;
     margin-bottom: 10px;
-    border-left: 5px solid #f1c40f;
     padding-left: 15px;
+    border-left: 6px solid #f1c40f;
 }
 
-/* Teks selamat datang */
+/* Teks Welcome */
 .welcome {
-    margin: 10px 0 30px;
-    color: #7f8c8d;
+    margin-bottom: 30px;
+    color: #555;
     font-size: 15px;
 }
 
-/* Container card */
+/* ===============================
+   3. CARD STATISTIK
+   =============================== */
 .card-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 25px;
 }
 
-/* Card */
+/* Card Umum */
 .card {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    border-top: 4px solid #3498db;
+    background: linear-gradient(135deg, #ffffff, #f9fbfc);
+    padding: 32px;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
     transition: all 0.3s ease;
+    border-top: 5px solid #3498db;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Efek hover */
 .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Aksen bulat dekoratif */
+.card::after {
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background: rgba(52, 152, 219, 0.08);
+    border-radius: 50%;
+    top: -30px;
+    right: -30px;
 }
 
 /* Card tersedia */
 .card.available {
-    border-top: 4px solid #2ecc71;
+    border-top: 5px solid #2ecc71;
 }
 
-/* Typography */
+.card.available::after {
+    background: rgba(46, 204, 113, 0.12);
+}
+
+/* =========================================
+   3. Typography
+   ========================================= */
 .card h3 {
+    margin: 0;
+    color: #95a5a6;
     font-size: 14px;
-    color: #7f8c8d;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
 }
 
 .card p {
-    font-size: 42px;
-    font-weight: 800;
+    margin-top: 18px;
     color: #2c3e50;
-    margin-top: 15px;
+    font-size: 44px;
+    font-weight: 800;
 }
-
-/* Responsive */
+/* ===============================
+   4. RESPONSIVE
+   =============================== */
 @media (max-width: 600px) {
+    .dashboard h2 {
+        font-size: 22px;
+    }
+
     .card p {
         font-size: 34px;
     }
-}
-
-/* ================= DASHBOARD ADMIN ================= */
-
-.dashboard {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-.dashboard h2 {
-    color: #2c3e50;
-    font-size: 26px;
-    margin-bottom: 10px;
-    border-left: 5px solid #f1c40f;
-    padding-left: 15px;
-}
-
-.welcome {
-    margin: 10px 0 30px;
-    color: #7f8c8d;
-    font-size: 15px;
-}
-
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-}
-
-.card {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    border-top: 4px solid #3498db;
-}
-
-.card.available {
-    border-top: 4px solid #2ecc71;
-}
-
-.card h3 {
-    font-size: 14px;
-    color: #7f8c8d;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.card p {
-    font-size: 42px;
-    font-weight: 800;
-    color: #2c3e50;
-    margin-top: 15px;
 }
