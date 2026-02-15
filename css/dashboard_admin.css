@@ -1,142 +1,126 @@
-/* 1. Reset & Global Styles - Agar tampilan konsisten */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font modern */
+/* ================= DASHBOARD ADMIN ================= */
+
+.dashboard {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-body {
-    background-color: #f4f6f9; /* Warna background abu-abu muda, tidak putih polos */
-    color: #333;
-}
-
-/* 2. Navbar Styling */
-.navbar {
-    background-color: #2c3e50; /* Tetap menggunakan warna biru tua pilihanmu */
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 5%; /* Padding kanan-kiri pakai persentase agar responsif */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Memberikan efek bayangan */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-/* Logo */
-.logo {
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* 3. Menu Navigation */
-.menu {
-    list-style: none;
-    display: flex;
-    gap: 30px; /* Jarak antar menu lebih lega */
-}
-
-.menu li a {
-    color: #ecf0f1;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 8px 12px;
-    border-radius: 5px;
-    transition: all 0.3s ease; /* Animasi halus */
-    position: relative;
-}
-
-/* Efek Hover Menu */
-.menu li a:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Background transparan saat hover */
-    color: #fff;
-}
-
-/* Menu Aktif */
-.menu li a.active {
-    background-color: #34495e;
-    color: #f1c40f; /* Kuning emas agar kontras */
-    font-weight: bold;
-}
-
-/* Garis bawah animasi untuk menu (Opsional, terlihat elegan) */
-.menu li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    background-color: #f1c40f;
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
-
-.menu li a:hover::after {
-    width: 80%; /* Garis muncul saat hover */
-}
-
-/* 4. Bagian Kanan (User & Logout) */
-.right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.user {
-    font-size: 15px;
-    font-weight: 500;
-    color: #bdc3c7;
-}
-
-.user span {
-    color: white;
-    font-weight: bold;
-}
-
-/* Tombol Logout */
-.logout {
-    background-color: #e74c3c;
-    color: white;
-    padding: 8px 20px;
-    text-decoration: none;
-    border-radius: 20px; /* Membuat tombol lonjong (pill shape) */
-    font-size: 14px;
-    font-weight: 600;
-    box-shadow: 0 2px 5px rgba(231, 76, 60, 0.3);
-    transition: all 0.3s ease;
-}
-
-.logout:hover {
-    background-color: #c0392b;
-    transform: translateY(-2px); /* Efek tombol naik sedikit */
-    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.4);
-}
-
-/* 5. Style Tambahan untuk Konten Dashboard (Agar teks Selamat Datang lebih bagus) */
-.container {
-    max-width: 1200px;
-    margin: 40px auto; /* Posisi tengah halaman */
-    padding: 30px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.container h1 {
-    font-size: 28px;
+/* Judul */
+.dashboard h2 {
     color: #2c3e50;
+    font-size: 26px;
     margin-bottom: 10px;
+    border-left: 5px solid #f1c40f;
+    padding-left: 15px;
 }
 
-.container p {
+/* Teks selamat datang */
+.welcome {
+    margin: 10px 0 30px;
     color: #7f8c8d;
-    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* Container card */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* Card */
+.card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border-top: 4px solid #3498db;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Card tersedia */
+.card.available {
+    border-top: 4px solid #2ecc71;
+}
+
+/* Typography */
+.card h3 {
+    font-size: 14px;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card p {
+    font-size: 42px;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-top: 15px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .card p {
+        font-size: 34px;
+    }
+}
+
+/* ================= DASHBOARD ADMIN ================= */
+
+.dashboard {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.dashboard h2 {
+    color: #2c3e50;
+    font-size: 26px;
+    margin-bottom: 10px;
+    border-left: 5px solid #f1c40f;
+    padding-left: 15px;
+}
+
+.welcome {
+    margin: 10px 0 30px;
+    color: #7f8c8d;
+    font-size: 15px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border-top: 4px solid #3498db;
+}
+
+.card.available {
+    border-top: 4px solid #2ecc71;
+}
+
+.card h3 {
+    font-size: 14px;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card p {
+    font-size: 42px;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-top: 15px;
 }

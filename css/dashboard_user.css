@@ -2,25 +2,25 @@
    1. Layout & Dasar
    ========================================= */
 body {
-    background-color: #f4f7f6;
+    background: linear-gradient(180deg, #f4f7f6, #eef2f1);
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .dashboard {
     max-width: 1000px;
-    margin: 40px auto;
+    margin: 50px auto;
     padding: 0 20px;
 }
 
-/* Judul dengan garis kuning khas */
+/* Judul Dashboard */
 .dashboard h2 {
     color: #2c3e50;
-    font-size: 26px;
-    margin-bottom: 30px;
-    border-left: 5px solid #f1c40f;
+    font-size: 28px;
+    margin-bottom: 35px;
+    border-left: 6px solid #f1c40f;
     padding-left: 15px;
-    line-height: 1;
+    font-weight: 700;
 }
 
 /* =========================================
@@ -28,55 +28,76 @@ body {
    ========================================= */
 .card-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
 }
 
-/* Desain Kartu Dasar */
+/* Desain Kartu */
 .card {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-top: 4px solid #3498db; /* Aksen biru untuk total */
+    background: linear-gradient(135deg, #ffffff, #f9fbfc);
+    padding: 32px;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    border-top: 5px solid #3498db;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Efek hover */
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* Variasi Warna Kartu Tersedia (Available) */
+/* Aksen bulat dekoratif */
+.card::after {
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background: rgba(52, 152, 219, 0.08);
+    border-radius: 50%;
+    top: -30px;
+    right: -30px;
+}
+
+/* Card tersedia */
 .card.available {
-    border-top: 4px solid #2ecc71; /* Aksen hijau untuk tersedia */
+    border-top: 5px solid #2ecc71;
 }
 
-/* Typography di dalam Kartu */
+.card.available::after {
+    background: rgba(46, 204, 113, 0.12);
+}
+
+/* =========================================
+   3. Typography
+   ========================================= */
 .card h3 {
     margin: 0;
-    color: #7f8c8d;
-    font-size: 16px;
+    color: #95a5a6;
+    font-size: 14px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
 }
 
 .card p {
-    margin: 15px 0 0;
+    margin-top: 18px;
     color: #2c3e50;
-    font-size: 40px;
+    font-size: 44px;
     font-weight: 800;
 }
 
 /* =========================================
-   3. Responsif
+   4. Responsif
    ========================================= */
 @media (max-width: 600px) {
     .dashboard h2 {
         font-size: 22px;
     }
-    
+
     .card p {
-        font-size: 32px;
+        font-size: 34px;
     }
 }

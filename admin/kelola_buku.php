@@ -10,12 +10,14 @@ if ($_SESSION['role'] != 'admin') {
 
 <?php include 'navbar.php'; ?>
 
-<link rel="stylesheet" href="/perpus/css/buku/kelola_buku.css">
+    <link rel="stylesheet" href="../css/dashboard_admin.css">
+    <link rel="stylesheet" href="../css/buku/kelola_buku.css">
+
 
 <div class="main-content">
     <div class="header-section">
         <h2>Kelola Data Buku</h2>
-        <a href="/perpus/admin/config_buku/tambah_buku.php" class="btn-add">+ Tambah Buku</a>
+        <a href="/admin/config_buku/tambah_buku.php" class="btn-add">+ Tambah Buku</a>
     </div>
 
     <div class="table-card">

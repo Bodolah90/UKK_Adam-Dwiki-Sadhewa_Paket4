@@ -27,7 +27,7 @@ $bukuTersedia = $dataTersedia['tersedia'];
 include 'navbar.php';
 ?>
 
-<link rel="stylesheet" href="/perpus/css/dashboard_user.css">
+<link rel="stylesheet" href="../css/dashboard_user.css">
 
 <div class="dashboard">
     <h2>Dashboard User</h2>

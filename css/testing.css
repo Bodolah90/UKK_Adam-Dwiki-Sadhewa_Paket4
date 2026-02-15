@@ -1,0 +1,175 @@
+/* ===========================
+   RESET & GLOBAL
+=========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+}
+
+/* ===========================
+   MAIN CONTENT (CENTER)
+=========================== */
+.main-content {
+    max-width: 1100px;
+    margin: 40px auto;   /* 🔥 ini yang bikin ke tengah */
+    padding: 0 20px;
+}
+
+.main-content h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ===========================
+   ALERT
+=========================== */
+.alert-success {
+    background: #2ecc71;
+    color: #fff;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ===========================
+   CARD
+=========================== */
+.table-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* ===========================
+   TABLE
+=========================== */
+.modern-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.modern-table thead {
+    background: #2c3e50;
+}
+
+.modern-table th {
+    color: #ffffff;
+    padding: 14px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.modern-table td {
+    padding: 14px;
+    font-size: 14px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.modern-table tbody tr {
+    border-bottom: 1px solid #ecf0f1;
+    transition: background 0.25s;
+}
+
+.modern-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+/* ===========================
+   STATUS BADGE
+=========================== */
+.badge {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-warning {
+    background: #f39c12;
+    color: #fff;
+}
+
+.badge-success {
+    background: #2ecc71;
+    color: #fff;
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+.btn-kembali {
+    background: #e74c3c;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn-kembali:hover {
+    background: #c0392b;
+}
+
+/* ===========================
+   EMPTY DATA
+=========================== */
+.modern-table td[colspan] {
+    padding: 30px;
+    color: #95a5a6;
+    font-style: italic;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 768px) {
+    .main-content {
+        margin: 20px auto;
+    }
+
+    .modern-table thead {
+        display: none;
+    }
+
+    .modern-table,
+    .modern-table tbody,
+    .modern-table tr,
+    .modern-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .modern-table tr {
+        margin-bottom: 15px;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        padding: 10px;
+    }
+
+    .modern-table td {
+        text-align: right;
+        padding: 10px;
+        position: relative;
+    }
+
+    .modern-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 12px;
+        color: #7f8c8d;
+        font-weight: 600;
+    }
+}

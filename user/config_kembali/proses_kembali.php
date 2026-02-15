@@ -26,7 +26,7 @@ if ($data) {
 
     // 2. Update status transaksi_user 
     // Pastikan kata 'kembali' sudah ada di ENUM transaksi_user melalui SQL di atas
-    $update = mysqli_query($koneksi, "UPDATE transaksi_user SET status = 'Kembali ', tgl_kembali = '$tgl_kembali' WHERE id = '$id_transaksi'");
+    $update = mysqli_query($koneksi, "UPDATE transaksi_user SET status = 'Dikembalikan ', tgl_kembali = '$tgl_kembali' WHERE id = '$id_transaksi'");
     // Perhatikan saya coba tambah spasi setelah kata Kembali di atas
 
     if ($update) {

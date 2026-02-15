@@ -10,7 +10,7 @@ if ($_SESSION['role'] != 'admin') {
 include '../navbar.php';
 ?>
 
-<link rel="stylesheet" href="/perpus/css/buku/tambah_buku.css">
+<link rel="stylesheet" href="/css/buku/tambah_buku.css">
 
 <div class="main-content">
     <h2>Tambah Buku</h2>

@@ -11,7 +11,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'user') {
 $user_id = $_SESSION['user_id']; // pastikan session menyimpan id user
 $query = mysqli_query($koneksi, "SELECT * FROM buku");
 ?>
-<link rel="stylesheet" href="/perpus/css/pinjam/pinjam_buku.css">
+<link rel="stylesheet" href="../css/pinjam/pinjam_buku.css">
 
 <div class="main-content">
     <h2>Daftar Buku</h2>

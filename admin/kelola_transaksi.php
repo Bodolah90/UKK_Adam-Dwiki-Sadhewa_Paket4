@@ -3,73 +3,102 @@ session_start();
 include '../config/config.php';
 include 'navbar.php';
 
-if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
+// Proteksi admin
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../index.php");
     exit();
 }
-// Query ini akan menampilkan semuanya (yang masih pinjam maupun sudah kembali)
-// Ganti baris 13-19 dengan ini untuk tes:
-$query = mysqli_query($koneksi, "SELECT * FROM transaksi_user ORDER BY id DESC");
+
+/*
+  Query FINAL (PAKAI JOIN)
+  - Lebih cepat
+  - Lebih rapi
+  - Tidak ada query di dalam while
+*/
+$query = mysqli_query($koneksi, "
+    SELECT 
+        t.id,
+        t.tgl_pinjam,
+        t.tgl_kembali,
+        t.status,
+        u.username,
+        b.nama_buku,
+        b.id_buku
+    FROM transaksi_user t
+    JOIN users u ON t.user_id = u.id
+    JOIN buku b ON t.buku_id = b.id_buku
+    ORDER BY t.id DESC
+");
+
+if (!$query) {
+    die(mysqli_error($koneksi));
+}
 ?>
 
-<div style="padding: 20px;">
-    <h2>Riwayat Transaksi Perpustakaan</h2>
-    <table border="1" width="100%" cellpadding="10" cellspacing="0">
-        <tr style="background-color: #f2f2f2;">
-            <th>No</th>
-            <th>Nama Peminjam</th>
-            <th>Judul Buku</th>
-            <th>Tgl Pinjam</th>
-            <th>Tgl Kembali</th>
-            <th>Status</th>
-            <th>Aksi</th>
-        </tr>
+<link rel="stylesheet" href="../css/dashboard_admin.css">
+<link rel="stylesheet" href="../css/transaksi/keloka_transaksi.css">
 
-        <?php $no = 1;
-        while ($t = mysqli_fetch_assoc($query)) {
-            // --- AMBIL DATA USER SECARA MANUAL ---
-            $id_u = $t['user_id'];
-            $u_cek = mysqli_query($koneksi, "SELECT username FROM users WHERE id = '$id_u'");
-            $u_data = mysqli_fetch_assoc($u_cek);
-            $view_username = $u_data['username'] ?? 'User tidak ditemukan';
+<div class="main-content">
 
-            // --- AMBIL DATA BUKU SECARA MANUAL ---
-            $id_b = $t['buku_id'];
-            $b_cek = mysqli_query($koneksi, "SELECT nama_buku FROM buku WHERE id_buku = '$id_b'");
-            $b_data = mysqli_fetch_assoc($b_cek);
-            $view_nama_buku = $b_data['nama_buku'] ?? 'Buku tidak ditemukan';
+    <div class="header-section">
+        <h2>Kelola Transaksi</h2>
+    </div>
 
-            // --- LOGIKA STATUS ---
-            // Di dalam file kelola_transaksi.php bagian logika status
-            $st = $t['status']; // Akan berisi 'Dipinjam' atau 'Kembali'
+    <div class="table-card">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Peminjam</th>
+                    <th>Judul Buku</th>
+                    <th>Tgl Pinjam</th>
+                    <th>Tgl Kembali</th>
+                    <th>Status</th>
+                    <th style="text-align:center;">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $no = 1;
+                while ($t = mysqli_fetch_assoc($query)) {
 
-            if ($st == 'Dipinjam') {
-                $warna = 'red';
-                $teks = 'Sedang Dipinjam';
-            } else if ($st == 'Kembali') {
-                $warna = 'green';
-                $teks = 'Sudah Dikembalikan';
-            }
-        ?>
-            <tr>
-                <td><?= $no++ ?></td>
-                <td><strong><?= $view_username ?></strong></td>
-                <td><?= $view_nama_buku ?></td>
-                <td><?= $t['tgl_pinjam'] ?></td>
-                <td><?= $t['tgl_kembali'] ?? '-' ?></td>
-                <td><b style="color: <?= $warnaStatus ?>;"><?= $teksStatus ?></b></td>
-                <td>
-                    <?php if ($status_db == 'pinjam'): ?>
-                        <a href="config_transaksi/transaksi_hapus.php?id=<?= $t['id'] ?>&id_buku=<?= $t['buku_id'] ?>"
-                            onclick="return confirm('Buku sudah dikembalikan?')"
-                            style="background-color: #007bff; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px; font-size: 12px;">
-                            Selesaikan
-                        </a>
-                    <?php else: ?>
-                        <span style="color: gray;">Selesai</span>
-                    <?php endif; ?>
-                </td>
-            </tr>
-        <?php } ?>
-    </table>
+                    $status_db  = $t['status'];
+                    $badgeClass = 'bg-red';
+                    $teksStatus = 'Sedang Dipinjam';
+
+                    if ($status_db === 'Dikembalikan') {
+                        $badgeClass = 'bg-green';
+                        $teksStatus = 'Sudah Dikembalikan';
+                    }
+                ?>
+                    <tr>
+                        <td><?= $no++ ?></td>
+                        <td><strong><?= htmlspecialchars($t['username']) ?></strong></td>
+                        <td><?= htmlspecialchars($t['nama_buku']) ?></td>
+                        <td><?= $t['tgl_pinjam'] ?></td>
+                        <td><?= $t['tgl_kembali'] ?? '-' ?></td>
+                        <td>
+                            <span class="badge <?= $badgeClass ?>">
+                                <?= $teksStatus ?>
+                            </span>
+                        </td>
+                        <td>
+                            <div class="action-buttons">
+                                <?php if ($status_db === 'Dipinjam'): ?>
+                                    <a href="config_transaksi/transaksi_hapus.php?id=<?= $t['id'] ?>&id_buku=<?= $t['id_buku'] ?>"
+                                        class="link-edit"
+                                        onclick="return confirm('Selesaikan transaksi ini?')">
+                                        Selesaikan
+                                    </a>
+                                <?php else: ?>
+                                    <span class="link-delete">Selesai</span>
+                                <?php endif; ?>
+                            </div>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+
 </div>

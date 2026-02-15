@@ -10,7 +10,9 @@ if ($_SESSION['role'] != 'admin') {
 include 'navbar.php';
 ?>
 
-<link rel="stylesheet" href="/perpus/css/user/kelola_user.css">
+<link rel="stylesheet" href="../css/user/kelola_user.css">
+    <link rel="stylesheet" href="../css/dashboard_admin.css">
+
 
 <div class="main-content">
     <h2>Kelola User</h2>
@@ -43,8 +45,8 @@ include 'navbar.php';
                         </td>
                         <td style="text-align:center">
                             <?php if (!$isSelf): ?>
-                                <a href="/perpus/admin/config_user/edit_role.php?id=<?= $u['id']; ?>">Ubah Role</a> |
-                                <a href="/perpus/admin/config_user/hapus_user.php?id=<?= $u['id']; ?>"
+                                <a href="../admin/config_user/edit_role.php?id=<?= $u['id']; ?>">Ubah Role</a>|
+                                <a href="../admin/config_user/hapus_user.php?id=<?= $u['id']; ?>"
                                     onclick="return confirm('Yakin ingin menghapus user ini?')">
                                     Hapus
                                 </a>

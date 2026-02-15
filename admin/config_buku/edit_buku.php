@@ -16,7 +16,7 @@ $buku = mysqli_fetch_assoc(
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Buku</title>
-    <link rel="stylesheet" href="/perpus/css/buku/edit_buku.css">
+    <link rel="stylesheet" href="/css/buku/edit_buku.css">
 </head>
 
 <body>
@@ -59,7 +59,7 @@ $buku = mysqli_fetch_assoc(
 
                 <div class="button-group">
                     <button type="submit" name="update" class="btn-update">Update Data</button>
-                    <a href="/perpus/admin/kelola_buku.php" class="btn-cancel">Batal</a>
+                    <a href="/admin/kelola_buku.php" class="btn-cancel">Batal</a>
                 </div>
             </form>
         </div>

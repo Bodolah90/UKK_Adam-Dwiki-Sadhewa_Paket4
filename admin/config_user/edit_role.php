@@ -22,7 +22,7 @@ $user = mysqli_fetch_assoc(
 include '../navbar.php';
 ?>
 
-<link rel="stylesheet" href="/perpus/css/user/edit_user.css">
+<link rel="stylesheet" href="/css/user/edit_user.css">
 
 <div class="main-content">
     <h2>Ubah Role User</h2>

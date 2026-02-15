@@ -16,6 +16,7 @@ if (isset($_POST['login'])) {
         if ($password == $user['password']) {
 
             // Session umum
+            $_SESSION['user_id'] = $user['id_user'];
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
 
