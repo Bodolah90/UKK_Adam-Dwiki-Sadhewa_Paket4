@@ -45,6 +45,6 @@ $halaman = basename($_SERVER['PHP_SELF']);
 
     <div class="right">
         <span><?= $_SESSION['username']; ?></span>
-        <a href="../logout.php" class="logout">Logout</a>
+        <a href="../logout.php" class="logout"  onclick="return confirm('Yakin mau logout?')">Logout</a>
     </div>
 </nav>

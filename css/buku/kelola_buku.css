@@ -88,6 +88,80 @@
     overflow: hidden;
 }
 
+/* FILTER */
+.filter-card {
+    background: #ffffff;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.filter-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-form input,
+.filter-form select {
+    padding: 9px 12px;
+    border-radius: 8px;
+    border: 1px solid #dcdfe3;
+    font-size: 14px;
+    min-width: 180px;
+}
+
+.filter-form input:focus,
+.filter-form select:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.filter-form button {
+    background: #1f2937;
+    color: #fff;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.filter-form button:hover {
+    background: #111827;
+}
+
+.btn-reset {
+    background: #e5e7eb;
+    color: #374151;
+    padding: 9px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btn-reset:hover {
+    background: #d1d5db;
+}
+
+/* BADGE STATUS */
+.badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.bg-green {
+    background: #22c55e;
+}
+
+.bg-red {
+    background: #ef4444;
+}
+
 .modern-table {
     width: 100%;
     border-collapse: collapse;

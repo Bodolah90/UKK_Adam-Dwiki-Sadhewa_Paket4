@@ -30,7 +30,7 @@ if ($data) {
     // Perhatikan saya coba tambah spasi setelah kata Kembali di atas
 
     if ($update) {
-        header("Location: ../kembalikan_buku.php?pesan=berhasil");
+        header("Location: ../history_transaksi.php?pesan=berhasil");
     } else {
         // Tampilkan error jika SQL gagal
         die("Gagal Update! Pesan Error: " . mysqli_error($koneksi));

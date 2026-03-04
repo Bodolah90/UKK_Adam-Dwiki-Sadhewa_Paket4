@@ -26,6 +26,82 @@ body {
     display: block !important;
 }
 
+.filter-card {
+    background: #ffffff;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.filter-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-form input,
+.filter-form select {
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    font-size: 14px;
+    min-width: 220px;
+    background-color: #fff;
+    color: #374151;
+}
+
+.filter-form input::placeholder {
+    color: #9ca3af;
+}
+
+.filter-form input:focus,
+.filter-form select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59,130,246,0.15);
+}
+
+.filter-form select {
+    padding: 9px 12px;
+    border-radius: 8px;
+    border: 1px solid #dcdfe3;
+    font-size: 14px;
+    min-width: 180px;
+}
+
+.filter-form select:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.filter-form button {
+    background: #1f2937;
+    color: #fff;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.filter-form button:hover {
+    background: #111827;
+}
+
+.btn-reset {
+    background: #e5e7eb;
+    color: #374151;
+    padding: 9px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btn-reset:hover {
+    background: #d1d5db;
+}
+
 /* =========================================
    2. Card & Tabel Styling
    ========================================= */

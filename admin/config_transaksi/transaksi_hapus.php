@@ -7,7 +7,7 @@ $tgl_kembali = date('Y-m-d');
 
 // 1. UPDATE status transaksi (Data tetap ada di DB)
 mysqli_query($koneksi, "UPDATE transaksi_user SET 
-    status = 'kembali', 
+    status = 'Dikembalikan', 
     tgl_kembali = '$tgl_kembali' 
     WHERE id = '$id'");
 

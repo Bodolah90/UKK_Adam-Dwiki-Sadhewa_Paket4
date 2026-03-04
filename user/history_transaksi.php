@@ -8,11 +8,38 @@ include 'navbar.php';
 
 $user_id = $_SESSION['user_id'];
 
+$search = $_GET['search'] ?? '';
+$status = $_GET['status'] ?? '';
+$tgl_dari = $_GET['tgl_dari'] ?? '';
+$tgl_sampai = $_GET['tgl_sampai'] ?? '';
+
+$where = [];
+$where[] = "t.user_id = '$user_id'";
+
+if ($search != '') {
+    $search = mysqli_real_escape_string($koneksi, $search);
+    $where[] = "b.nama_buku LIKE '%$search%'";
+}
+
+if ($status != '') {
+    $where[] = "t.status = '$status'";
+}
+
+if ($tgl_dari != '' && $tgl_sampai != '') {
+    $where[] = "t.tgl_pinjam BETWEEN '$tgl_dari' AND '$tgl_sampai'";
+} elseif ($tgl_dari != '') {
+    $where[] = "t.tgl_pinjam >= '$tgl_dari'";
+} elseif ($tgl_sampai != '') {
+    $where[] = "t.tgl_pinjam <= '$tgl_sampai'";
+}
+
+$where_sql = implode(" AND ", $where);
+
 $query = mysqli_query($koneksi, "
     SELECT t.*, b.nama_buku 
     FROM transaksi_user t
     JOIN buku b ON t.buku_id = b.id_buku
-    WHERE t.user_id = '$user_id'
+    WHERE $where_sql
     ORDER BY t.id DESC
 ");
 ?>
@@ -23,6 +50,43 @@ $query = mysqli_query($koneksi, "
 
 <div class="main-content">
     <h2>History Transaksi</h2>
+
+    <div class="filter-card">
+    <form method="GET" class="filter-form">
+
+        <input type="text"
+               name="search"
+               placeholder="Cari judul buku..."
+               value="<?= $_GET['search'] ?? '' ?>">
+
+        <select name="status">
+            <option value="">Semua Status</option>
+            <option value="Dipinjam" <?= (@$_GET['status']=='Dipinjam')?'selected':'' ?>>
+                Dipinjam
+            </option>
+            <option value="Dikembalikan" <?= (@$_GET['status']=='Dikembalikan')?'selected':'' ?>>
+                Dikembalikan
+            </option>
+        </select>
+
+        <!-- FILTER TANGGAL PINJAM -->
+        <div class="date-group">
+            <label>Dari</label>
+            <input type="date" name="tgl_dari"
+                   value="<?= $_GET['tgl_dari'] ?? '' ?>">
+        </div>
+
+        <div class="date-group">
+            <label>Sampai</label>
+            <input type="date" name="tgl_sampai"
+                   value="<?= $_GET['tgl_sampai'] ?? '' ?>">
+        </div>
+
+        <button type="submit">Terapkan</button>
+        <a href="history_transaksi.php" class="btn-reset">Reset</a>
+
+    </form>
+</div>
 
     <div class="table-card">
         <table class="modern-table">

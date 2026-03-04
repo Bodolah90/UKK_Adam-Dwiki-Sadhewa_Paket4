@@ -10,20 +10,34 @@ if ($_SESSION['role'] != 'admin') {
 
 $id = $_GET['id'] ?? null;
 
-// Validasi id
 if (!$id) {
     header("Location: ../kelola_user.php");
     exit();
 }
 
-// ❌ Admin tidak boleh hapus dirinya sendiri
+// Admin tidak boleh hapus dirinya sendiri
 if ($_SESSION['id'] == $id) {
-    header("Location: ../kelola_user.php");
+    header("Location: ../kelola_user.php?msg=self");
     exit();
 }
 
-// Hapus user
+// 🔍 CEK APAKAH USER PUNYA TRANSAKSI
+$cek = mysqli_query($koneksi,
+    "SELECT COUNT(*) AS total 
+     FROM transaksi_user 
+     WHERE user_id = '$id'"
+);
+
+$data = mysqli_fetch_assoc($cek);
+
+if ($data['total'] > 0) {
+    // ❌ GAGAL HAPUS
+    header("Location: ../kelola_user.php?msg=punya_transaksi");
+    exit();
+}
+
+// ✅ AMAN DIHAPUS
 mysqli_query($koneksi, "DELETE FROM users WHERE id='$id'");
 
-header("Location: ../kelola_user.php");
+header("Location: ../kelola_user.php?msg=hapus_sukses");
 exit();
